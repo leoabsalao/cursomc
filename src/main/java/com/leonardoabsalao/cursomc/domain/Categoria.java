@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -25,6 +26,7 @@ public class Categoria implements Serializable {
     
     
 	// Mapeamento chave estrangeira da tabela produto com a tabela categoria.
+    @JsonManagedReference
 	@ManyToMany(mappedBy = "categorias")
     private List<Produto> produtos = new ArrayList<>();
     
